@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6ef0aa7-3101-43ba-b5c3-ca36ee9011a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dto/ValidUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CreateUserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/DeleteUserTest.java" afterDir="false" />
+    <list default="true" id="b6ef0aa7-3101-43ba-b5c3-ca36ee9011a7" name="Changes" comment="project">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/allure.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreateUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreateUserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/DeleteUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/DeleteUserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="prerelease" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -51,8 +51,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CreateUserTest.createUserSuccessful">
-    <configuration name="CreateUserTest.createUserSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DeleteUserTest.successDelete">
+    <configuration name="CreateUserTest.createUserWithEmptyEmailField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="nocode-api" />
       <extension name="coverage">
         <pattern>
@@ -62,45 +62,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.CreateUserTest" />
-      <option name="METHOD_NAME" value="createUserSuccessful" />
+      <option name="METHOD_NAME" value="createUserWithEmptyEmailField" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateUserTest.createUserWithMethodGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="nocode-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CreateUserTest" />
-      <option name="METHOD_NAME" value="createUserWithMethodGet" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateUserTest.deleteCreatedUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="nocode-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CreateUserTest" />
-      <option name="METHOD_NAME" value="deleteCreatedUser(java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeleteUserTest.deleteCreateUserWithMethodGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DeleteUserTest.deleteNotExistedUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="nocode-api" />
       <extension name="coverage">
         <pattern>
@@ -110,7 +78,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.DeleteUserTest" />
-      <option name="METHOD_NAME" value="deleteCreateUserWithMethodGet" />
+      <option name="METHOD_NAME" value="deleteNotExistedUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeleteUserTest.deleteUserWithMethodGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nocode-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DeleteUserTest" />
+      <option name="METHOD_NAME" value="deleteUserWithMethodGet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeleteUserTest.deleteUserWithWrongEmailDomain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="nocode-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DeleteUserTest" />
+      <option name="METHOD_NAME" value="deleteUserWithWrongEmailDomain" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateUserTest.createUserSuccessful" />
         <item itemvalue="JUnit.DeleteUserTest.successDelete" />
-        <item itemvalue="JUnit.CreateUserTest.deleteCreatedUser" />
-        <item itemvalue="JUnit.DeleteUserTest.deleteCreateUserWithMethodGet" />
-        <item itemvalue="JUnit.CreateUserTest.createUserWithMethodGet" />
+        <item itemvalue="JUnit.CreateUserTest.createUserWithEmptyEmailField" />
+        <item itemvalue="JUnit.DeleteUserTest.deleteNotExistedUser" />
+        <item itemvalue="JUnit.DeleteUserTest.deleteUserWithWrongEmailDomain" />
+        <item itemvalue="JUnit.DeleteUserTest.deleteUserWithMethodGet" />
       </list>
     </recent_temporary>
   </component>
@@ -151,6 +151,28 @@
       <option name="presentableId" value="Default" />
       <updated>1691590613458</updated>
     </task>
+    <task id="LOCAL-00001" summary="project">
+      <created>1692087924159</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692087924159</updated>
+    </task>
+    <task id="LOCAL-00002" summary="project">
+      <created>1692087972887</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692087972887</updated>
+    </task>
+    <task id="LOCAL-00003" summary="project">
+      <created>1692088096468</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692088096468</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,5 +185,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="project" />
+    <option name="LAST_COMMIT_MESSAGE" value="project" />
   </component>
 </project>

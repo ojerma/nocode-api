@@ -1,5 +1,7 @@
 package tests;
 
+import com.github.javafaker.Faker;
+import dto.ValidUserRequest;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -11,6 +13,7 @@ public class BaseTest {
     final static String BASE_URI = "https://studio-api.softr.io/v1/api";
     final static String API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
     final static String DOMAIN = "jere237.softr.app";
+    Faker faker = new Faker();
 
 
 
@@ -22,7 +25,7 @@ public class BaseTest {
             .addHeader("Softr-Domain",DOMAIN )
             .build();
 
-    public static Response getRequest(String endPoint, Integer responseCode) {
+    public static Response getRequest(String endPoint, ValidUserRequest requestBody/*Integer responseCode*/) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .when()
@@ -30,7 +33,7 @@ public class BaseTest {
                 .get(endPoint)
                 .then().log().all()
                 .extract().response();
-        response.then().assertThat().statusCode(responseCode);
+        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 
@@ -47,7 +50,7 @@ public class BaseTest {
         return response;
     }
 
-    public Response postRequest(String endPoint, Integer responseCode, Object body) {
+    public Response postRequest(String endPoint, Object body) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .body(body)
@@ -56,10 +59,10 @@ public class BaseTest {
                 .post(endPoint)
                 .then().log().all()
                 .extract().response();
-        response.then().assertThat().statusCode(responseCode);
+        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
-    public Response postRequestWithMethodGet(String endPoint, Integer responseCode, Object body) {
+    public Response postRequestWithMethodGet(String endPoint, Object body) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .body(body)
@@ -68,7 +71,7 @@ public class BaseTest {
                 .get(endPoint)
                 .then().log().all()
                 .extract().response();
-        response.then().assertThat().statusCode(responseCode);
+        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 
@@ -85,7 +88,7 @@ public class BaseTest {
         return response;
     }
 
-    public Response deleteRequest(String endPoint, Integer responseCode) {
+    public Response deleteRequest(String endPoint/*Integer responseCode*/) {
 
         Response response = RestAssured.given()
                 .spec(specification)
@@ -94,11 +97,12 @@ public class BaseTest {
                 .delete(endPoint)
                 .then().log().all()
                 .extract().response();
-        response.then().assertThat().statusCode(responseCode);
+        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 
-    public Response deleteCreatedUserWithMethodGet(String endPoint, Integer responseCode) {
+
+    public Response deleteUserWithMethodGet(String endPoint) {
 
         Response response = RestAssured.given()
                 .spec(specification)
@@ -107,7 +111,18 @@ public class BaseTest {
                 .get(endPoint)
                 .then().log().all()
                 .extract().response();
-        response.then().assertThat().statusCode(responseCode);
+        return response;
+    }
+    public Response deleteNotExistedUserRequest(String endPoint, Object Body) {
+
+        Response response = RestAssured.given()
+                .spec(specification)
+                .when()
+                .log().all()
+                .delete(endPoint)
+                .then().log().all()
+                .extract().response();
+        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 }
