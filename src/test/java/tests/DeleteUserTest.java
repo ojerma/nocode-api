@@ -11,11 +11,6 @@ public class DeleteUserTest extends BaseTest{
 
 
     String endpoint = "/users/";
-    //String emailAddress = faker.internet().emailAddress();
-    /*@Test
-    public void successDelete(){
-        Response response = deleteRequest(endpoint+email ,200);
-    }*/
 
     @Test
     public void successDelete(){

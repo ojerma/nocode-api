@@ -25,7 +25,7 @@ public class BaseTest {
             .addHeader("Softr-Domain",DOMAIN )
             .build();
 
-    public static Response getRequest(String endPoint, ValidUserRequest requestBody/*Integer responseCode*/) {
+    public static Response getRequest(String endPoint, ValidUserRequest requestBody) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .when()
@@ -33,7 +33,6 @@ public class BaseTest {
                 .get(endPoint)
                 .then().log().all()
                 .extract().response();
-        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 
@@ -59,7 +58,6 @@ public class BaseTest {
                 .post(endPoint)
                 .then().log().all()
                 .extract().response();
-        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
     public Response postRequestWithMethodGet(String endPoint, Object body) {
@@ -71,7 +69,6 @@ public class BaseTest {
                 .get(endPoint)
                 .then().log().all()
                 .extract().response();
-        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 
@@ -88,7 +85,7 @@ public class BaseTest {
         return response;
     }
 
-    public Response deleteRequest(String endPoint/*Integer responseCode*/) {
+    public Response deleteRequest(String endPoint) {
 
         Response response = RestAssured.given()
                 .spec(specification)
@@ -97,7 +94,6 @@ public class BaseTest {
                 .delete(endPoint)
                 .then().log().all()
                 .extract().response();
-        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 
@@ -122,7 +118,6 @@ public class BaseTest {
                 .delete(endPoint)
                 .then().log().all()
                 .extract().response();
-        //response.then().assertThat().statusCode(responseCode);
         return response;
     }
 }

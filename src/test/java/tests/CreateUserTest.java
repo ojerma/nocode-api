@@ -23,19 +23,17 @@ public class CreateUserTest extends BaseTest {
                 .generate_magic_link(false)
                 .build();
 
-        //Response response = postRequest(endpoint, 201, requestBody);
         Response response = postRequest(endpoint, requestBody);
-        //response.getStatusCode();
         assertEquals(201, response.getStatusCode());
-//        response.then().assertThat().statusCode(201);
         response = deleteRequest(endpoint + "/" + emailAddress);
         assertEquals(200, response.getStatusCode());
 }
 
     @Test
     public void createUserWithoutEmailDomain() {
+        String emailAddress = "hkkds@";
         ValidUserRequest requestBody = ValidUserRequest.builder()
-                .email("hkkds@")
+                .email(emailAddress)
                 .full_name(faker.internet().uuid())
                 .password(faker.internet().password())
                 .generate_magic_link(false)
@@ -47,8 +45,9 @@ public class CreateUserTest extends BaseTest {
     }
     @Test
     public void createUserWithWrongEmail() {
-        ValidUserRequest requestBody = ValidUserRequest.builder()
-                .email(".@gmail.com")
+        String emailAddress = ".@gmail.com";
+                ValidUserRequest requestBody = ValidUserRequest.builder()
+                .email(emailAddress)
                 .full_name(faker.internet().uuid())
                 .password(faker.internet().password())
                 .generate_magic_link(false)
@@ -56,25 +55,11 @@ public class CreateUserTest extends BaseTest {
 
         Response response = postRequest(endpoint, requestBody);
         assertEquals(201, response.getStatusCode());
-        response = deleteRequest(endpoint + "/" + ".@gmail.com");
+        response = deleteRequest(endpoint + "/" + emailAddress);
         assertEquals(200, response.getStatusCode());
     }
 
-    @Test
-    public void createUserWithWrongEmailDomain() {
-        ValidUserRequest requestBody = ValidUserRequest.builder()
-                .email("hkkdsddffdsdasjh@gmil.com")
-                .full_name(faker.internet().uuid())
-                .password(faker.internet().password())
-                .generate_magic_link(false)
-                .build();
 
-        Response response = postRequest(endpoint, requestBody);
-        assertEquals(201, response.getStatusCode());
-        response = deleteRequest(endpoint + "/" + "hkkdsddffdsdasjh@gmil.com");
-        assertEquals(200, response.getStatusCode());
-
-    }
 
     @Test
     public void createUserPasswordLessThanRequired() {
@@ -156,10 +141,6 @@ public class CreateUserTest extends BaseTest {
 
         Response response = postRequest(endpoint, requestBody);
         assertEquals(400, response.getStatusCode());
-        //response = deleteRequest(endpoint + "/" + "");
-        //assertEquals(400, response.getStatusCode());
-
-
     }
 
     @Test
@@ -177,7 +158,8 @@ public class CreateUserTest extends BaseTest {
         response = deleteRequest(endpoint + "/" + emailAddress);
         assertEquals(200, response.getStatusCode());
 
-    }}
+    }
+}
     /*
     @AfterEach
     public void after(){
