@@ -7,7 +7,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.AfterEach;
+
 
 public class BaseTest {
     final static String BASE_URI = "https://studio-api.softr.io/v1/api";
@@ -49,7 +49,7 @@ public class BaseTest {
         return response;
     }
 
-    public Response postRequest(String endPoint, Object body) {
+    public Response postRequest(String endPoint, int expectedStatusCode, ValidUserRequest body) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .body(body)
@@ -60,7 +60,7 @@ public class BaseTest {
                 .extract().response();
         return response;
     }
-    public Response postRequestWithMethodGet(String endPoint, Object body) {
+    public Response postRequestWithMethodGet(String endPoint, int responseCode, Object body) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .body(body)

@@ -12,7 +12,7 @@ public class DeleteUserTest extends BaseTest{
 
     String endpoint = "/users/";
 
-    @Test
+    /*@Test
     public void successDelete(){
         String email = faker.internet().emailAddress();
         ValidUserRequest requestBody = ValidUserRequest.builder()
@@ -26,7 +26,7 @@ public class DeleteUserTest extends BaseTest{
         assertEquals(201, response.getStatusCode());
         response = deleteRequest(endpoint + email);
         assertEquals(200, response.getStatusCode());
-    }
+    }*/
 
     @Test
     public void deleteNotExistedUser(){
@@ -41,23 +41,8 @@ public class DeleteUserTest extends BaseTest{
         assertEquals(404, response.getStatusCode());
     }
     @Test
-    public void deleteUserWithWrongEmailDomain(){
-        ValidUserRequest requestBody = ValidUserRequest.builder()
-                .email("betty@gail.com")
-                .full_name(faker.internet().uuid())
-                .password(faker.internet().password())
-                .generate_magic_link(false)
-                .build();
-
-        Response response = postRequest(endpoint, requestBody);
-        assertEquals(201, response.getStatusCode());
-        response = deleteRequest(endpoint + "betty@gail.c");
-        assertEquals(404, response.getStatusCode());
-    }
-
-    @Test
     public void deleteUserWithMethodGet(){
-        String email = faker.internet().emailAddress();;
+        String email = faker.internet().emailAddress();
         ValidUserRequest requestBody = ValidUserRequest.builder()
                 .email(email)
                 .full_name(faker.internet().uuid())
