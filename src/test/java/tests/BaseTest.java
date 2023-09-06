@@ -49,7 +49,7 @@ public class BaseTest {
         return response;
     }
 
-    public Response postRequest(String endPoint, int expectedStatusCode, ValidUserRequest body) {
+    public Response postRequest(String endPoint, int responseCode, Object body) {
         Response response = RestAssured.given()
                 .spec(specification)
                 .body(body)
@@ -58,6 +58,7 @@ public class BaseTest {
                 .post(endPoint)
                 .then().log().all()
                 .extract().response();
+        response.then().assertThat().statusCode(responseCode);
         return response;
     }
     public Response postRequestWithMethodGet(String endPoint, int responseCode, Object body) {
@@ -85,7 +86,7 @@ public class BaseTest {
         return response;
     }
 
-    public Response deleteRequest(String endPoint) {
+    public Response deleteRequest(String endPoint, Integer responseCode) {
 
         Response response = RestAssured.given()
                 .spec(specification)
@@ -94,30 +95,7 @@ public class BaseTest {
                 .delete(endPoint)
                 .then().log().all()
                 .extract().response();
-        return response;
-    }
-
-
-    public Response deleteUserWithMethodGet(String endPoint) {
-
-        Response response = RestAssured.given()
-                .spec(specification)
-                .when()
-                .log().all()
-                .get(endPoint)
-                .then().log().all()
-                .extract().response();
-        return response;
-    }
-    public Response deleteNotExistedUserRequest(String endPoint, Object Body) {
-
-        Response response = RestAssured.given()
-                .spec(specification)
-                .when()
-                .log().all()
-                .delete(endPoint)
-                .then().log().all()
-                .extract().response();
+        response.then().assertThat().statusCode(responseCode);
         return response;
     }
 }
